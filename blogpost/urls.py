@@ -18,5 +18,6 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
-    path('', views.blogposts)
+    path('', views.blogposts),
+    path('base/', views.base),
 ]

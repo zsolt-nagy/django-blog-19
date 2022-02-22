@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Blog - Welcome</title>
-</head>
-<body>
-    <h1>Welcome to the Django Blog!</h1>
-    <p>{{ count }} blogpost(s).</p>
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}  
+    <img src="{% static 'base/img/django.png' %}" alt="background check" />
+
+    <p>{{ blogposts|length }} blogpost{{ blogposts|pluralize }}.</p>
 
     <ul>
         {% for blogpost in blogposts %}
-            <li>{{ blogpost.title }}</li>
+            <li>{{ blogpost.title }} ({{ blogpost.publish_date|date:"l, M-d-Y" }} by {{ blogpost.author }})</li>
         {% endfor %}
     </ul>    
-</body>
-</html>
+{% endblock %}

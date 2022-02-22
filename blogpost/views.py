@@ -4,10 +4,15 @@ from .models import Blogpost
 # Create your views here.
 def blogposts(request):
     blogposts = Blogpost.objects.all()
-    count = blogposts.count()
     context = { 
         'blogposts': blogposts,
-        'count': count,
+        'page_title': 'JavaScript Blog Home',
     }    
     return render(request, 'blogposts.html', context)
+
+def base(request):
+    context = {
+        'page_title': 'JavaScript blog with every word capitalized'
+    }
+    return render(request, 'base.html', context)
 
