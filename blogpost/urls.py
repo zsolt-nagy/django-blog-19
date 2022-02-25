@@ -18,6 +18,8 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
-    path('', views.blogposts),
-    path('base/', views.base),
+    path('', views.blogposts, name='blogposts'),
+    path('posts/', views.all_posts, name='all-posts'),
+    path('posts/new', views.new_post, name='new-post'),
+    path('posts/<int:post_id>/', views.singe_post, name='single-post'),
 ]
