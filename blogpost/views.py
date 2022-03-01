@@ -17,7 +17,7 @@ def all_posts(request):
     if request.method == 'POST':
         id = int(request.POST.get('post_id'))
         try:
-            Blogpost.objects.get(id=27).delete()
+            Blogpost.objects.get(id=id).delete()
         except:
             print('Error deleting blogpost')
             error_message = 'Error deleting blogpost'
